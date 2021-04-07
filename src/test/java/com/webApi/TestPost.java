@@ -1,13 +1,15 @@
+package com.webApi;
+
 import io.restassured.http.ContentType;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
 
-public class TestPost01 {
+public class TestPost {
 
     @Test
-    public void testPost_01() {
+    public void testPost01() {
 
 /**
  * Adding a request body using map is shown below
@@ -32,15 +34,15 @@ public class TestPost01 {
 
         System.out.println(request);
 
-        given()
-                .header("Content-Type", "application/json")
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .body(request.toJSONString())
+                given()
+                    .header("Content-Type", "application/json")
+                    .contentType(ContentType.JSON)
+                    .accept(ContentType.JSON)
+                    .body(request.toJSONString())
                 .when()
-                .post("https://reqres.in/api/users")
+                    .post("https://reqres.in/api/users")
                 .then()
-                .statusCode(201);
+                    .statusCode(201);
     }
 
 }
